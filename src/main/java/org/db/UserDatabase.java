@@ -2,35 +2,30 @@ package org.db;
 
 import org.service.User;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserDatabase {
-    private List<User> userList;
+    private Map<Integer, User> userMap;
 
     public UserDatabase() {
-        this.userList = new ArrayList<>();
+        this.userMap = new HashMap<>();
+    }
+
+    public Map<Integer, User> getUserMap() {
+        return userMap;
     }
 
     public void addUser(User user) {
-        userList.add(user);
-    }
-
-    public List<User> getUserList() {
-        return userList;
+        userMap.put(user.getId(), user);
     }
 
     public User getUserById(int userId) {
-        for (User user : userList) {
-            if (user.getId() == userId) {
-                return user;
-            }
-        }
-        return null;
+        return userMap.get(userId);
     }
 
     public User getUserByUsername(String username) {
-        for (User user : userList) {
+        for (User user : userMap.values()) {
             if (user.getUsername().equals(username)) {
                 return user;
             }
@@ -38,27 +33,19 @@ public class UserDatabase {
         return null;
     }
 
-
     public boolean updateUser(User updatedUser) {
-        for (int i = 0; i < userList.size(); i++) {
-            User currentUser = userList.get(i);
-            if (currentUser.getId() == updatedUser.getId()) {
-                userList.set(i, updatedUser);
-                return true;
-            }
+        if (userMap.containsKey(updatedUser.getId())) {
+            userMap.put(updatedUser.getId(), updatedUser);
+            return true;
         }
         return false;
-
-
     }
+
     public boolean deleteUser(int userId) {
-        for (User user : userList) {
-            if (user.getId() == userId) {
-                userList.remove(user);
-                return true;
-            }
+        if (userMap.containsKey(userId)) {
+            userMap.remove(userId);
+            return true;
         }
         return false;
     }
-    // Boshqa metodlar: getUserById(), getUserByUsername(), updateUser(), deleteUser(), va hokazo
 }
