@@ -2,6 +2,7 @@ import org.been.Car;
 import org.been.User;
 import org.db.CarDatabase;
 import org.db.UserDatabase;
+import org.utilFormat.DateFormat;
 
 import java.util.List;
 import java.util.Scanner;
@@ -148,15 +149,18 @@ public class Main {
             System.out.println("Your cars:");
             for (Car car : userCars) {
                 String inStore = car.isInStore() ? "In Store" : "In Garage";
-                System.out.println("Car ID: " + car.getId() + ", Name: " + car.getName() + ", Color: " + car.getColor()
-                        + ", Status: " + inStore + "car price: " + car.getPrice());//TODO: bu formatda yozish xato to'girliman o'zim
+
+                System.out.println(String.format("id: %s, car-name: %s, car-color: %s, owner-id: %s, car-price: %s, created-date: %s %s",
+                        car.getId(), car.getName(), car.getColor(), currentUser.getId(), car.getPrice(),
+                        DateFormat.formatDate(car.getCreatedAt()),", " + inStore));
+
             }
         }
     }
 
 
     private static void sellCar() {
-      /*  showUserCars();
+        showUserCars();
         System.out.print("Which car to sell enter car id: ");
         int sellId = scanner.nextInt();
 
@@ -173,7 +177,7 @@ public class Main {
             }
             return;
         }
-        System.out.println("Car is not found.");*///TODO: Ishlamadi hozir usitda ishlavomma
+        System.out.println("Car is not found.");//TODO: Ishlamadi hozir usitda ishlavomma
     }
 
 

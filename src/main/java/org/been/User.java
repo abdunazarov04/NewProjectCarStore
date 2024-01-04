@@ -1,11 +1,45 @@
 package org.been;
 
 
+import java.time.LocalDateTime;
+
 public class User {
     private int id;
     private String username;
     private String password;
     private int balance = 1000;
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public LocalDateTime getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(LocalDateTime deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime updatedAt;
+    private LocalDateTime deletedAt;
+
+    public User(){
+
+    }
 
     // Constructor
     public User(int id, String username, String password) {
