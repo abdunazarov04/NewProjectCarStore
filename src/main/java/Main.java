@@ -1,7 +1,3 @@
-package org;
-
-
-
 import org.been.Car;
 import org.been.User;
 import org.db.CarDatabase;
