@@ -1,4 +1,4 @@
-package org.service;
+package org.been;
 
 public class Car {
 
@@ -6,11 +6,11 @@ public class Car {
     private String name;
     private String color;
     private int userId; // User ID si
-    private double price;
+    private int price;
     private boolean isInStore;
 
 
-    public Car(int id, String name, String color, int userId, double price) {
+    public Car(int id, String name, String color, int userId, int price) {
         this.id = id;
         this.name = name;
         this.color = color;
@@ -43,11 +43,11 @@ public class Car {
         this.userId = userId;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

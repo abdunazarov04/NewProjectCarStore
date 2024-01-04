@@ -1,18 +1,18 @@
-package org.service;
+package org.been;
 
 
 public class User {
     private int id;
     private String username;
     private String password;
-    private double balance;
+    private int balance = 1000;
 
     // Constructor
     public User(int id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.balance = 1000;
+        this.balance = getBalance();
     }
 
 
@@ -36,11 +36,11 @@ public class User {
         this.password = password;
     }
 
-    public double getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(int balance) {
         this.balance = balance;
     }
 

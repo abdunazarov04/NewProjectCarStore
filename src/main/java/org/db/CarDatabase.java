@@ -1,6 +1,6 @@
 package org.db;
 
-import org.service.Car;
+import org.been.Car;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,5 +54,13 @@ public class CarDatabase {
             }
         }
         return false;
+    }
+
+    public List<Car> getCarList(int id) {
+        return carList;
+    }
+
+    public void setCarList(List<Car> carList) {
+        this.carList = carList;
     }
 }

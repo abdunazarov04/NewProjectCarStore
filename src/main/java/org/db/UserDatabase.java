@@ -1,6 +1,6 @@
 package org.db;
 
-import org.service.User;
+import org.been.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +28,8 @@ public class UserDatabase {
         }
         return null;
     }
+
+
 
     public User getUserByUsername(String username) {
         for (User user : userList) {
@@ -60,5 +62,6 @@ public class UserDatabase {
         }
         return false;
     }
+
     // Boshqa metodlar: getUserById(), getUserByUsername(), updateUser(), deleteUser(), va hokazo
 }
